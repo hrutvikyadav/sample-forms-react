@@ -9,8 +9,9 @@ class App extends Component {
     super(props)
 
     this.state = { 
-      name: '',
-      email: '',
+      server: '',
+      database: '',
+      deviceId: '',
       disabled: false,
   }
 
@@ -21,21 +22,25 @@ class App extends Component {
   handleSubmit(e){
     //window.alert('hi')
     this.setState( prevState => ({
-      name: prevState.name,
       disabled: !prevState.disabled,
     }))
     e.preventDefault();
   }
 
   handleChange(e){
-    if (e.target.id === 'name') {
+    if (e.target.id === 'server') {
       this.setState({
-        name: e.target.value 
+        server: e.target.value 
       })
     }
-    if (e.target.id === 'email') {
+    if (e.target.id === 'database') {
       this.setState({
-        email: e.target.value
+        database: e.target.value
+      })
+    }
+    if (e.target.id === 'device-id') {
+      this.setState({
+        deviceId: e.target.value
       })
     }
     console.log(e.target.id);
@@ -44,7 +49,13 @@ class App extends Component {
   render() {
     return(
       <Container>
-        <GeneralInfo name={this.state.name} email={this.state.email} disabled={this.state.disabled} handlechange={this.handleChange} handlesubmit={this.handleSubmit}/>
+        <GeneralInfo 
+          server={this.state.server}
+          deviceid={this.state.deviceId}
+          database={this.state.database}
+          disabled={this.state.disabled}
+          handlechange={this.handleChange}
+          handlesubmit={this.handleSubmit}/>
 
       </Container>
     )

@@ -16,27 +16,46 @@ class GeneralInfo extends React.Component {
                     email input,
                     phome,
                     city */}
-                <Form.Label htmlFor="name">Enter name</Form.Label>
+                <Form.Label htmlFor="server">Enter server</Form.Label>
                 <Form.Control
                     type="text"
-                    id="name"
-                    value={this.props.name}
+                    id="server"
+                    value={this.props.server}
                     onChange={this.props.handlechange}
                     disabled={this.props.disabled}
                 />
 
-                <Form.Label htmlFor="email">Enter email</Form.Label>
+                <Form.Label htmlFor="database">Enter database</Form.Label>
                 <Form.Control
                     type="text"
-                    id="email"
-                    value={this.props.email}
+                    id="database"
+                    value={this.props.database}
                     onChange={this.props.handlechange}
                     disabled={this.props.disabled}
                 />
 
-                { !this.props.disabled ? <Button variant="primary" type="submit" active>
-                    Submit
-                </Button> : <Button variant="primary" type="submit" active>Edit</Button> }
+                <Form.Label htmlFor="device-id">Enter device-id</Form.Label>
+                <Form.Control
+                    type="text"
+                    id="device-id"
+                    value={this.props.deviceid}
+                    onChange={this.props.handlechange}
+                    disabled={this.props.disabled}
+                />
+
+                { !this.props.disabled
+                    ? <Button 
+                        variant="primary"
+                        type="submit"
+                        active>
+                        Submit
+                    </Button>
+                        : <Button
+                            variant="primary"
+                            type="submit"
+                            active
+                            >Edit
+                        </Button> }
             </Container>
         )
     }
